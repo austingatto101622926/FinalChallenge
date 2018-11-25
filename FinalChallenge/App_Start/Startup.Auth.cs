@@ -58,11 +58,11 @@ namespace FinalChallenge
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "600745576168-njmb8eidnnb2ld12n4mgilfo2s12cecq.apps.googleusercontent.com",
+                ClientSecret = "Woq4HbH4wQRrAWmbaH2GKnDa"
+            });
         }
     }
 }
