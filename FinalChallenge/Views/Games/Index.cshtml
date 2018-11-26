@@ -1,0 +1,53 @@
+﻿@model IEnumerable<FinalChallenge.Models.Game>
+
+@{
+    ViewBag.Title = "Games";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Games</h2>
+@Html.ActionLink("Previous Games", "Previous")<br />
+@Html.ActionLink("Upcoming Games", "Upcoming")
+
+<h2>All</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Venue)
+        </th>
+        <!--
+        <th>
+            @Html.DisplayNameFor(model => model.FeeAmount)
+        </th>
+        -->
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venue)
+            </td>
+            <!--
+            <td>
+                @Html.DisplayFor(modelItem => item.FeeAmount)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.GameId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.GameId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.GameId })
+            </td>
+            -->
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FinalChallenge.Models.AspNetUser>
+
+@{
+    ViewBag.Title = "Members";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Members</h2>
+@Html.ActionLink("Pending", "Pending")
+<h2>Authorised</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFeesPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetRoles)
+        </th>
+        <th>
+            @Html.Raw("Move to pending")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFeesPaid)
+        </td>
+        <td>
+            @Html.Raw(item.AspNetRoles.FirstOrDefault().Name)
+        </td>
+        <td>
+            @Html.ActionLink("Move to pending", "Reject", new { id = item.Id })
+        </td>
+    </tr>
+    }
+    </table>
